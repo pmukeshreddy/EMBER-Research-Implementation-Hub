@@ -1,0 +1,40 @@
+{
+  "server": {
+    "name": "ember-malware-detection",
+    "version": "1.0.0",
+    "max_workers": 4,
+    "log_level": "INFO"
+  },
+  "spark": {
+    "app_name": "MCP_EMBER_Inference",
+    "driver_memory": "4g",
+    "shuffle_partitions": 4,
+    "log_level": "ERROR"
+  },
+  "paths": {
+    "model_path": "/Users/mukeshreddypochamreddy/Downloads/DIC_spark_models",
+    "data_path": "/Users/mukeshreddypochamreddy/Downloads/DIC_cleaned",
+    "comments": {
+      "model_path": "Directory containing DecisionTree, RandomForest, GBT folders",
+      "data_path": "Directory containing ember2024_train_cleaned.npz and ember2024_test_cleaned.npz"
+    }
+  },
+  "models": {
+    "available": [
+      "DecisionTree",
+      "RandomForest",
+      "GBT"
+    ],
+    "default": "RandomForest"
+  },
+  "dataset": {
+    "num_features": 2381,
+    "train_file": "ember2024_train_cleaned.npz",
+    "test_file": "ember2024_test_cleaned.npz"
+  },
+  "thresholds": {
+    "high_confidence": 0.9,
+    "medium_confidence": 0.7,
+    "ensemble_threshold": 0.5
+  }
+}
